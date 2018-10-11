@@ -1,0 +1,90 @@
+﻿<section class="order-search-view">
+    <div class="panel panel-default" ng-if="!hasStandardTypes">
+        <div class="panel-heading" style="text-align:center">
+            <ul>
+                <a ng-click="OrderSearch($event,{Type:'Standard',Status:'AwaitingApproval',Direction:'Outgoing',DisplayName:'Awaiting Approval',Count:2,OrderID:null,ShippingAddress:null,DateRangeFrom:'0001-01-01T00:00:00',DateRangeTo:'0001-01-01T00:00:00',LastN:0,page:0,pagesize:0})">
+                    <h3 class="panel-title">AWAITING APPROVAL <span class="badge">None</span></h3>
+                </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="order-types">
+        <div class="panel panel-default" ng-show="hasStandardTypes">
+            <div class="panel-heading" style="text-align:center">
+                <ul>
+                    <li ng-repeat="criteria in OrderSearchCriteria | filter:{Type:'Standard', Status:'AwaitingApproval'}" ng-show="criteria.Count">
+                        <a ng-click="OrderSearch($event,{Type:'Standard',Status:'AwaitingApproval',Direction:'Outgoing',DisplayName:'Awaiting Approval',Count:2,OrderID:null,ShippingAddress:null,DateRangeFrom:'0001-01-01T00:00:00',DateRangeTo:'0001-01-01T00:00:00',LastN:0,page:0,pagesize:0})">
+                            <h3 class="panel-title">
+                                {{criteria.DisplayName | r | xlat}} <span class="badge">{{criteria.Count}}</span>
+                            </h3>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default" ng-if="hasStandardTypes" ng-init="OrderSearch($event,{Type:'Standard',Status:'AwaitingApproval',Direction:'Outgoing',DisplayName:'Awaiting Approval',Count:2,OrderID:null,ShippingAddress:null,DateRangeFrom:'0001-01-01T00:00:00',DateRangeTo:'0001-01-01T00:00:00',LastN:0,page:0,pagesize:0})">
+        <div class="panel-table">
+            <loadingindicator ng-show="pagedIndicator" />
+            <div ng-show="settings.listCount > settings.pageSize">
+                <pagination page="settings.currentPage" max-size="8" rotate="false" boundary-links="true" total-items="settings.listCount"
+                            items-per-page="settings.pageSize" direction-links="true"></pagination>
+            </div>
+            <div class="row hidden-xs text-info">
+                <div class="col-xs-12 col-sm-3">{{'Order' | r | xlat}}</div>
+                <div class="col-xs-12 col-sm-5">{{'Items' | r | xlat}}</div>
+                <div class="col-xs-12 col-sm-1">{{'Submitted By' | r | xlat}}</div>
+                <div class="col-xs-12 col-sm-1">{{('Submitted' | r) + ' ' + ('Date' | r) | xlat}}</div>
+                <div class="col-xs-12 col-sm-1" ng-if="!(user.Permissions.contains('HidePricing'))">{{'Total' | r | xlat}}</div>
+            </div>
+            <div class="row" style="padding-bottom:20px;" ng-repeat="order in orders | paginate:(settings.currentPage-1) * settings.pageSize | limitTo:settings.pageSize">
+                <div class="col-sm-3">
+                    <span class="visible-xs panel-table-heading-xs text-info">{{'Order' | r | xlat}}</span>
+                    <h3 class="text-primary" style="margin-top:3px;margin-bottom:0px;">{{order.ExternalID}}</h3>
+                    <div style="margin-left:30px;">
+                        <button class="btn btn-small btn-action" style="background-color:LightGreen" ng-click="approveOrder($index)" ng-disabled="approveClicked">{{'Approve' | r | xlat}}</button>
+                        <button class="btn btn-small btn-default" ng-click="editOrder($index)">{{'Cart' | r | xlat}}</button>
+                        <button class="btn btn-small btn-default" ng-click="editCheckout($index)">{{'Checkout' | r | xlat}}</button>
+                        <button class="btn btn-small btn-default" ng-click="declineOrder($index)">{{'Decline' | r | xlat}}</button>
+                    </div>
+
+                </div>
+                <div class="col-sm-5">
+                    <div ng-repeat="item in linelist(order.ID)">
+                        <div class="row" style="border: 0px solid black;">
+                            <div class="col-sm-2" style="margin-right:15px">
+                                <a class="btn btn-small btn-default line-item-link" style="text-decoration:none;" ng-click="editLine(order.ID, $index)">
+                                    Edit Line
+                                </a>
+                            </div>
+                            <div class="col-sm-9" style="border-left: 0px solid black;">
+                                <h3 style="display:inline;" class="text-primary">
+                                    {{item.ProductIDText}}
+                                </h3>
+                                <p>{{item.Product.Name}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-1">
+                    <span class="visible-xs panel-table-heading-xs text-info">{{'Submitted' | r | xlat}}</span>
+                    {{order.FromUserFirstName + ' ' + order.FromUserLastName}}
+                </div>
+                <div class="col-sm-1">
+                    <span class="visible-xs panel-table-heading-xs text-info">{{('Submitted' | r) + ' ' + ('Date' | r) | xlat}}</span>
+                    {{order.DateSubmitted || order.DateCreated | date:user.Culture.DateFormat.long}}
+                </div>
+                <div class="col-sm-1" ng-if="!(user.Permissions.contains('HidePricing'))">
+                    <span class="visible-xs heading-xs text-info">{{'Total' | r}}</span>
+                    {{order.Total | culturecurrency}}
+                </div>
+            </div>
+            <div ng-show="settings.listCount > settings.pageSize">
+                <pagination page="settings.currentPage" max-size="8" rotate="false" boundary-links="true" total-items="settings.listCount"
+                            items-per-page="settings.pageSize" direction-links="true"></pagination>
+            </div>
+        </div>
+    </div>
+</section>

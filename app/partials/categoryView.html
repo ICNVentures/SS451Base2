@@ -1,0 +1,37 @@
+<section>
+    <!--
+        <nav id="451qa_nav_hdr" class="nav">
+            <breadcrumbs></breadcrumbs>
+            <ul>
+                <li class="hidden-sm hidden-xs">
+                    <span ng-click="toggleNav()"><i class="fa fa-bars" ng-class="{ 'text-info': navStatus.visible }"></i></span>
+                </li>
+
+            </ul>
+        </nav>
+    -->
+    <div class="row">
+        <!--
+            <aside class="col-sm-3 col-collapse visible-md visible-lg" ng-if="navStatus.visible">
+                <div class="panel panel-default panel-nav">
+                    <nav class="nav 451qa_sidenav panel-body">
+                        <ul>
+                            <categorycollapse tree='tree' current='currentCategory'></categorycollapse>
+                        </ul>
+                    </nav>
+                </div>
+            </aside>
+        -->
+        <div class="col-collapse" ng-if="showCat() == 'CAT'" ng-class="{ 'col-md-9': navStatus.visible }">
+            <categorylistview></categorylistview>
+        </div>
+        <div class="col-collapse" ng-if="showCat() == 'PRO'" ng-class="{ 'col-md-9': navStatus.visible }">
+            <loadingindicator ng-show="productLoadingIndicator" title="{{'Please wait while we fetch all products' | r | xlat}}" />
+            <productlistview></productlistview>
+        </div>
+        <div class="col-collapse" style="text-align:center;" ng-if="showCat() == 'BAN'" ng-class="{ 'col-md-9': navStatus.visible }">
+            <img style="display:inline;" ng-src="{{showBanner()}}" />
+        </div>
+
+    </div>
+</section>

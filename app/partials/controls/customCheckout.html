@@ -1,0 +1,47 @@
+﻿<div ng-if="ccAOSmithBuyer" class="form-group">
+    <label class="ng-binding" style="margin-top:15px;" ng-class="{required: ccPrimaryRequired}">
+        <span style="font-size:11px;">Primary Function</span>
+        <div ng-class="{'input-group':true}" style="margin-top:5px;">
+            <select name="ccPrimaryInput" class="form-control" ng-required="ccPrimaryRequired"
+                    ng-change="ccPrimaryChange(ccPrimaryValue)" ng-model="ccPrimaryValue">
+                <option value=""></option>
+                <option ng-if="ccPrimaryOpt(1)" value="Manufacturer Representative">Manufacturer Representative</option>
+                <option ng-if="ccPrimaryOpt(2)" value="Retail Store Location">Retail Store Location</option>
+                <option ng-if="ccPrimaryOpt(3)" value="Wholesale Distributor">Wholesale Distributor</option>
+                <option ng-if="ccPrimaryOpt(4)" value="Plumbing Contractor">Plumbing Contractor</option>
+                <option ng-if="ccPrimaryOpt(5)" value="Contractor">Contractor</option>
+                <option ng-if="ccPrimaryOpt(6)" value="Service Agent">Service Agent</option>
+                <option ng-if="ccPrimaryOpt(7)" value="Service Agent/Contractor">Service Agent/Contractor</option>
+                <option ng-if="ccPrimaryOpt(8)" value="Spec. Engineer/Architect">Spec. Engineer/Architect</option>
+                <option ng-if="ccPrimaryOpt(9)" value="Specifying Engineer">Specifying Engineer</option>
+                <option ng-if="ccPrimaryOpt(10)" value="American Employee">American Employee</option>
+                <option ng-if="ccPrimaryOpt(11)" value="A.O. Smith Employee">A.O. Smith Employee</option>
+                <option ng-if="ccPrimaryOpt(12)" value="Reliance Employee">Reliance Employee</option>
+                <option ng-if="ccPrimaryOpt(13)" value="State Employee">State Employee</option>
+                <option ng-if="ccPrimaryOpt(14)" value="Takagi Employee">Takagi Employee</option>
+                <option ng-if="ccPrimaryOpt(15)" value="US Craftmaster Employee">US Craftmaster Employee</option>
+            </select>
+        </div>
+    </label>
+    <div ng-if="ccRepShow">
+        <label style="margin-top:15px;" ng-class="{required: ccRepRequired}">
+            <span style="font-size:11px;">{{ccRepLabel}}</span>
+            <div ng-class="{'input-group':true}" style="margin-top:5px;">
+                <input name="ccRepInput" ng-required="ccRepRequired" type="text"
+                       class="form-control"
+                       ng-change="ccRepChange(ccRepValue)"
+                       ng-model="ccRepValue" autocomplete="off" maxlength="5" ng-minlength="{{ccRepLen}}" />
+            </div>
+        </label>
+    </div>
+    <div ng-show="ccCustShow">
+        <label style="margin-top:15px;" ng-class="{required: ccCustRequired}">
+            <span style="font-size:11px;">{{ccCustLabel}}</span>
+            <div ng-class="{'input-group':true}" style="margin-top:5px;">
+                <input name="ccCustInput" ng-required="ccCustRequired" class="form-control" type="text"
+                       ng-change="ccCustChange(ccCustValue)"
+                       ng-model="ccCustValue" autocomplete="off" maxlength="10" />
+            </div>
+        </label>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+﻿<div class="panel panel-default">
+    <div class="panel-footer" style="text-align:center;">
+        <landinginfo></landinginfo>
+    </div>
+    <div class="panel-category-list">
+        <loadingindicator ng-show="categoryLoadingIndicator" title="{{'Please wait while we fetch all categories' | r | xlat}}" />
+        <nav class="nav 451_lbl_subcatlist">
+            <ul>
+                <li class="col-lg-3 col-md-6 col-sm-6 col-xs-12" ng-repeat="t in tree">
+
+                    <div class="well" style="border-radius: 5px; border: 1px solid #dbdbdb;">
+                        <a ng-if="t.Description && t.Description.indexOf('http') >= 0" target="_blank" href="{{t.Description}}">
+                            <div style="background-color: #5d5d5d; padding: 1px; border-radius: 5px 5px 0px 0px;">
+                                <h5 ng-bind-html="t.Name" style="font-size: 20px; color:#fff; font-family: 'Open Sans', sans-serif;" />
+                            </div>
+                            <div style="padding: 20px;">
+                                <figure ng-show="t.Image.URL">
+                                    <img class="img-responsive" ng-src="{{t.Image.URL}}" />
+                                </figure>
+                            </div>
+                            <div class="empty" ng-show="!t.Image.URL">
+                                <span class="fa empty"><i class="fa fa-camera"></i></span>
+                            </div>
+                        </a>
+                        <a ng-if="!t.Description || t.Description.indexOf('http') < 0" ng-href="catalog/{{t.InteropID}}">
+                            <div style="background-color: #5d5d5d; padding: 1px; border-radius: 5px 5px 0px 0px;">
+                                <h5 ng-bind-html="t.Name" style="font-size: 20px; color:#fff; font-family: 'Open Sans', sans-serif;" />
+                            </div>
+                            <div style="padding: 20px;">
+                                <figure ng-show="t.Image.URL">
+                                    <img class="img-responsive" ng-src="{{t.Image.URL}}" />
+                                </figure>
+                            </div>
+                            <div class="empty" ng-show="!t.Image.URL">
+                                <span class="fa empty"><i class="fa fa-camera"></i></span>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!--
+    <homemessage />
+    -->
+</div>

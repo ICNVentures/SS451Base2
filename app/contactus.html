@@ -1,0 +1,113 @@
+<section class="contact-us">
+    <accountnavigation ng-show="user.Permissions.contains('ViewSelfAdmin') || user.Type == 'Customer'" />
+    <div class="panel panel-no-panels">
+        <div class="panel-heading">
+            <h1 class="panel-title panel-primary">{{('Support' | r) + ' ' + ('' | r) | xlat }}</h1>
+        </div>
+        <div class="panel-body" style="font-weight:normal">
+            <div ng-show="treeCount == 0" class="view-response-message alert-danger text-center" style="padding:8px;padding-top:15px;" alert-show="errorMessage">
+                <h4>
+                    {{'Your user account is not setup to order any products at this time.  Please contact Smart Source for further assistance.' | r | xlat}}
+                </h4>
+            </div>
+            <p>
+                <h4 style="text-align:center;">
+                    <b>
+                        <contactinfo></contactinfo>
+                    </b>
+                </h4>
+            </p>
+            <br /><br />
+            <helpinfo></helpinfo>
+            <h4><b>Order Tracking</b></h4>
+            <div style="margin-left:30px">
+                You will receive a confirmation email to the 'Ordered By Email' address you enter on checkout once your order is placed and a second email containing tracking information
+                when your order ships. Additionally, you can check the status of your order at any time by logging into your account and clicking the "Orders".
+                <br /><br />
+            </div>
+            <h4><b>Smart Source (SS) Promotional Products Return Policy</b></h4>
+            <div style="margin-left:30px">
+                <b><u>Warehoused/Inventoried Items</u></b>:&nbsp; If you find it necessary to return an item,
+                communicate to your account manager or customer service representative the item to be returned, its
+                location, and the reason for the return. Your Smart Source representative will complete a return
+                authorization form, advise you of any freight liability (if applicable), handle the physical removal
+                of the item, and expedite any credits due to you.
+                <br /><br />
+                As a general policy, credit memos are issued to customers within 30 days of receipt of returned
+                goods to originating SS Distribution Center and the conditions listed below have been met and
+                verified. Once the Credit is approved, the Credit shall be issued to the account or credit card where
+                the original order was placed. Credit Memos are issued at a value not to exceed the original
+                invoice amount.
+                <br /><br />
+
+                <b><u>Returned Goods</u></b>:&nbsp; SS will accept the return of Inventory Items under the following conditions:
+                <ul style="list-style-type: disc; margin-top:0px; margin-left: 10px; margin-bottom:30px;">
+                    <li>Within 30 days of invoice date.</li>
+                    <li>Items returned must be the current version and not obsolete inventory. The item(s) must be unused, must also be in original packaging and in re-sellable condition.</li>
+                    <li>
+                        A Return Authorization sent from Smart Source must accompany all returned package items. (Please contact your Account Manager or Customer Service Representative for
+                        Return Authorization information).
+                    </li>
+                    <li>
+                        Smart Source will issue credit, based on the original invoice amount, according to the number of days elapsed from the original invoice date to the date the returned
+                        items are received at the Distribution Center. <b>(**Note: Freight and handling charges are excluded, unless the return is due to a Smart Source error.)</b>
+                    </li>
+                </ul>
+
+                <b><u>0-30	Days</u></b>:
+                <ul style="list-style-type: disc; margin-top:0px; margin-left: 15px; margin-bottom:30px;">
+                    <li>Items returned due to a Smart Source error shall receive at customer's option exchange for corrected merchandise or full credit for item(s) purchased including freight and handling charges.</li>
+                    <li>
+                        Items returned due to customer error - A minimum restocking fee of $15.00 or 15% of the value of the item (whichever is greater) will be assessed per item returned
+                        <b>(**Note: Freight and handling charges are excluded, unless the return is due to a Smart Source error.)</b>
+                    </li>
+                </ul>
+
+                <b><u>31+ Days</u></b>:
+                <ul style="list-style-type: disc; margin-top:0px; margin-left: 15px; margin-bottom:30px;">
+                    <li>No credit will be issued.</li>
+                </ul>
+                <br /><br />
+                <b>Please note - All packaged items must be returned to the Distribution Center of origin before credit will be issued.</b>&nbsp; A Smart Source sales representative will
+                not pick up, issue credit and/or package items for the customer.
+                <br /><br />
+
+                <b><u>Custom Items / On Demand Items / Drop Ship / Special Order Items</u></b>:&nbsp; May not be returned unless there is a manufacturer defect. Please contact customer support if a
+                defective product is delivered.
+                <br /><br />
+                <b><u>If you should have any questions regarding your order, please contact your customer service representative.</u></b>
+                <br /><br />
+            </div>
+            <h4><b>Privacy & Security</b></h4>
+            <div style="margin-left:30px">
+                What Information Do We Collect?
+                <br /><br />
+                We only collect information that we need that is related to your order. This includes your:
+                <br /><br />
+                &bull;&nbsp;&nbsp;Shipping Address<br />
+                &bull;&nbsp;&nbsp;Email Address<br />
+                &bull;&nbsp;&nbsp;Credit Card Information<br />
+                <br />
+                We also collect information on your IP address, browser type, and Refer URL data. We use this data to prevent hacking attempts and to help us know what web browsers people are using.
+                <br /><br />
+            </div>
+            <h4><b>How Is My Information Used?</b></h4>
+            <div style="margin-left:30px">
+                Your information is only used to fill your order. We do not sell or redistribute your information to anyone.
+                <br /><br />
+            </div>
+            <h4><b>Security and Storage</b></h4>
+            <div style="margin-left:30px">
+                Only your order billing, shipping, and order contents data is stored on our server. This information is encrypted using a Secure Sockets Layer (SSL) before it is transmitted over a web server. We do not store your credit card data.
+                <br /><br />
+            </div>
+            <h4><b>Cookies and Browser Information</b></h4>
+            <div style="margin-left:30px">
+                Cookies are small files that reside on your computer and allow us to recognize you on your next visit or store your shopping cart contents. We use them only to track this information.
+                <br /><br />
+            </div>
+        </div>
+        <div class="panel-footer">
+        </div>
+    </div>
+</section>

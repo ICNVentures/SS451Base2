@@ -1,0 +1,41 @@
+<section class="category-navigation">
+    <header class="header navbar navbar-inner">
+        <nav class="navbar navbar-categories" role="navigation">
+            <section>
+                <div class="container" style="margin-top:15px;">
+                    <div class="nav navbar-nav pull-left">
+                        <div class="logo">
+                            <a href="catalog">
+                                <img class="img-responsive" ng-src="{{user.Company.LogoUrl}}" style="max-width: 100%;" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="nav navbar-nav pull-right">
+                        <div class="logo">
+
+                            <img class="img-responsive" style="max-height: 60px" src="css/images/SS_logo_for_banner_reduced.jpg">
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="container">
+                    <ul ng-if="tree.length > 1" class="nav navbar-nav pull-right hidden-xs hidden-sm">
+                        <li ng-repeat="t in tree" class="piped" ng-class="{'active': isInPath('{{t.InteropID}}'),'dropdown': t.SubCategories.length > 0}">
+                            <a ng-if="t.SubCategories.length > 0" href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="false" style="font-size: 16px;color:#0a3c61;"><b>{{t.Name}}</b></a>                          
+                            <a ng-if="t.SubCategories.length == 0 && t.Description.indexOf('http') >= 0" target="_blank" href="{{t.Description}}" style="font-size: 16px;color:#0a3c61;"><b>{{t.Name}}</b></a>
+                            <a ng-if="t.SubCategories.length == 0 && t.Description.indexOf('http') < 0" href="catalog/{{t.InteropID}}" style="font-size: 16px;color:#0a3c61;"><b>{{t.Name}}</b></a>                      
+                            <ul ng-if="t.SubCategories.length > 0" class="dropdown-menu">
+                                <li><a href="catalog/" style="color:#0a3c61">All {{t.Name}}</a></li>
+                                <li ng-repeat="sc in t.SubCategories">
+                                    <a href="catalog/{{sc.InteropID}}" style="color:#0a3c61">{{sc.Name}}</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+            </section>
+        </nav>
+    </header>
+</section>

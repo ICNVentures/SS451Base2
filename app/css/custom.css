@@ -1,0 +1,398 @@
+/*
+Static file for Theme changes
+Theme name: Smart Source Base Theme
+Version: 1.0
+Template: Base
+Created: 10/14/16
+Last Updated:
+Authors: Coverdale Group
+*/
+
+
+.btn-advertising {
+
+    background-color: #41b0d9;
+    color: #fff;
+    font-weight: bold;
+}
+
+.btn-advertising:hover {
+
+    background-color: #1396C7;
+    color: #fff;
+    font-weight: bold;
+}
+
+
+/******************/
+
+#content {
+    border-bottom:20px solid #636467;
+    min-height:900px;
+    padding-bottom:60px;
+}
+
+@media (max-width:767px) {
+    #content {
+        min-height:100%;
+    }
+}
+
+.search-bar .btn.btn-default {
+    background-color: #FFFFFF;
+}
+.header-navigation > div,
+.category-navigation,
+.search-bar .container,
+.contact-us {
+    max-width:1200px;
+    margin: 0 auto;
+}
+
+.header-navigation {
+    height: 30px;
+    background-color: #e6e6e6;
+    color: #ffffff;
+}
+
+.header-navigation ul {
+    text-align:right;
+    float:right;
+}
+
+.header-navigation li {
+    float:left;
+    padding:5px 5px;
+}
+
+.header-navigation a {
+    text-align:right;
+    font-size:95%;
+}
+
+.header-navigation .badge {
+    background-color:#0060A0;
+    margin-left:3px;
+}
+
+.header-navigation a:hover i {
+    text-decoration:none
+}
+
+.navbar {
+    margin-bottom: -1px;
+}
+
+/* 1/25/2018 Ken Edwards
+    Changed from 45px to 15px
+*/
+.category-navigation {margin:15px auto;}
+
+.category-navigation .navbar .container .navbar-nav.pull-right li a,
+.category-navigation .navbar .container-view .navbar-nav.pull-right li a {
+    padding:10px;
+    color: #8ba6c3;
+    font-weight: normal;
+}
+
+.category-navigation .navbar .container .navbar-nav.pull-right li ul li a,
+.category-navigation .navbar .container-view .navbar-nav.pull-right li ul li a {
+    padding:10px;
+}
+
+.category-navigation .navbar .container .navbar-nav.pull-right li a:hover,
+.category-navigation .navbar .container-view .navbar-nav.pull-right li a:hover,
+.category-navigation .navbar .container .navbar-nav.pull-right li a:focus,
+.category-navigation .navbar .container-view .navbar-nav.pull-right li a:focus {
+    color:#0060A0;
+    background-color:#fff;
+}
+
+.category-navigation .navbar .container .navbar-nav.pull-right li ul li a:hover,
+.category-navigation .navbar .container-view .navbar-nav.pull-right li ul li a:hover,
+.category-navigation .navbar .container .navbar-nav.pull-right li ul li a:focus,
+.category-navigation .navbar .container-view .navbar-nav.pull-right li ul li a:focus {
+    color:#fff;
+    background-color:#0060A0;
+}
+
+/* 1/21/18 Ken Edwards
+   Moved from Fields custom.css to base.
+*/
+.navbar li.piped + li.piped {
+    border-left:2px solid #8ba6c3;
+}
+.category-navigation ul li ul li {width:100%}
+
+.search-bar form {
+    padding:10px 0 0 0;
+    max-width:260px;
+}
+
+
+.search-bar .view-form-icon .btn i {
+    color:#fff;
+    font-size:1.2em;
+}
+
+.contact-us .panel-heading .panel-title {
+    font-size:1.6em;
+    padding:0
+}
+
+.app-loading-indicator-cell {
+    background-color:#fff;
+}
+
+.app-loading-indicator-cell i {
+    color: #0060A0;
+}
+
+.app-loading-indicator-cell p {
+    background-color: #ffffff;
+    color: #fff;
+}
+
+/*----------------------------------*/
+
+.helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+body {
+    margin-bottom:0;
+}
+
+.breadcrumb {
+    background-color: #ffffff;
+}
+
+.container-fluid {
+    min-height: 60px;
+    vertical-align: middle;
+}
+
+
+body a {
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
+}
+
+.panel-nav {
+    margin-right:15px;
+}
+
+.panel-nav ul li ul li a {
+    color: #0877a7;
+    font-size: 14px;
+    font-weight: bold;
+
+}
+
+.panel-nav ul li ul li ul li a {
+    color: #3db6ea;
+    font-size: 14px;
+    font-weight: normal;
+
+}
+
+/* 1/21/18 Ken Edwards
+   Moved from Fields custom.css to base.
+*/
+.navbar-nav > li > a {
+
+    /* was 40px, height added*/
+    line-height: 0px;   
+    height: 0px;        
+}
+
+.product-detail-default {
+    background-color: #ffffff;
+}
+
+.thumbnail img {
+
+    max-height: 150px;
+}
+
+.gray-background {
+    background-color: #7f7f7f;
+
+}
+
+.light-gray-background {
+    background-color: #f0f0f0;
+
+}
+
+.white_background {
+    background-color: #ffffff;
+
+}
+
+.white_text {
+    color: #ffffff;
+
+}
+
+.gray_text {
+    color: #606060;
+
+}
+
+.dark_blue_text {
+    color: #043B55;
+
+}
+
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    font-family: 'Arial';
+    font-weight: bold;
+}
+
+input, button, select, textarea {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.btn-info {
+    border-color: #0877A7;
+}
+
+.btn-info {
+    background-color: #0877A7;
+}
+
+.btn-primary {
+    background-color: #043B56;
+}
+
+
+.jumbotron {
+    /*margin: 15px;*/
+    margin:0 0 -55px;
+}
+.jumbotron {
+    /*margin: 15px;*/
+    padding: 0;
+}
+.container .navbar-nav li.active > a {
+    color: #ffffff;
+}
+
+.navbar-default {
+
+
+    background-color: #5d5d5d;
+    border-color: #5d5d5d;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #606060;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+    color: #9a9a9a;
+}
+.navbar-nav li.dropdown li > a {
+    color: #043b55;
+}
+
+.levelTwoNav {
+    color: #000;
+}
+
+.footerHeader
+{
+    color: #ffffff;
+
+}
+
+.assistancebox {
+
+    background-color: #0877a7;
+    color: #ffffff;
+    padding: 15px;
+    margin: 10px 0 10px 0;
+}
+
+/*START LEVEL 2 NAV*/
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu > .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -6px;
+    margin-left: -1px;
+}
+
+.dropdown-submenu:hover > .dropdown-menu {
+    display: block;
+}
+
+.dropdown-submenu:hover > a:after {
+    border-left-color: #fff;
+}
+
+.dropdown-submenu.pull-left {
+    float: none;
+}
+
+.dropdown-submenu.pull-left > .dropdown-menu {
+    left: -100%;
+    margin-left: 10px;
+}
+
+
+.spendingaccounts {
+    padding: 20px 15px;
+    color: #ffffff;
+}
+
+/*END LEVEL 2 NAV*/
+.nav {
+    padding-top: 0;
+}
+
+.well {
+    /*height: 300px;*/
+    padding: 15px 0 12px 0;
+	height: 275px;
+}
+
+.search-view .panel-product-list .well {
+    height: auto;
+}
+
+/*
+.panel-category-list ul li .well {
+
+    height: 245px;
+}
+*/
+.panel-category-list ul li a {
+    padding: 0;
+}
+
+.navbar-fixed-bottom {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.thumbnail img {
+	max-height: 125px;
+	}
