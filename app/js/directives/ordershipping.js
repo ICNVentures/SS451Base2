@@ -236,7 +236,9 @@
 						if (s.Name == $scope.currentOrder.LineItems[0].ShipperName)
 						{
 							$scope.currentOrder.Shipper = s;
-							$scope.currentOrder.ShipperID = s.ID;
+							//Don't set the ID here--it apparently triggers the shipping module to calculate/re-calculate shipping.
+							//If you set shipperID also, the shipping won't calculate
+							//$scope.currentOrder.ShipperID = s.ID;
 						}
 					});
 

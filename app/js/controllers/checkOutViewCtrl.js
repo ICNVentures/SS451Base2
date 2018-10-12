@@ -47,7 +47,7 @@ function ($scope, $routeParams, $location, $filter, $rootScope, $451, User, Orde
     
     function setDefaults()
     {
-        var rc = true;
+        var rc = false;
 
         angular.forEach($scope.user.CustomFields, function(field) 
         {
