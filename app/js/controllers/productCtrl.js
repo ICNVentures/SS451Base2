@@ -1,5 +1,5 @@
-four51.app.controller('ProductCtrl', ['$scope', '$routeParams', '$route', '$location', '$451', 'Product', 'ProductDisplayService', 'Order', 'Variant', 'User',
-function ($scope, $routeParams, $route, $location, $451, Product, ProductDisplayService, Order, Variant, User) {
+four51.app.controller('ProductCtrl', ['$scope', '$routeParams', '$route', '$location', '$451', '$http', 'Product', 'ProductDisplayService', 'Order', 'Variant', 'User',
+function ($scope, $routeParams, $route, $location, $451, $http, Product, ProductDisplayService, Order, Variant, User) {
     $scope.isEditforApproval = $routeParams.orderID && $scope.user.Permissions.contains('EditApprovalOrder');
     if ($scope.isEditforApproval) {
         Order.get($routeParams.orderID, function(order) {
@@ -33,7 +33,7 @@ function ($scope, $routeParams, $route, $location, $451, Product, ProductDisplay
 			$scope.LineItem.Product = data.product;
 			$scope.PD = data.product.Description;
             imgList($scope.PD);
-            itemUsage(data.product.InteropID);
+            //itemUsage(data.product.InteropID);
 			$scope.LineItem.Variant = data.variant;
 			ProductDisplayService.setNewLineItemScope($scope);
 			ProductDisplayService.setProductViewScope($scope);
@@ -117,34 +117,34 @@ function ($scope, $routeParams, $route, $location, $451, Product, ProductDisplay
         }
     }
     
-    function itemUsage(id)
-    {
-        $http
-        (
-            {
-                url: "https://ssfour51.com/services/WebService.asmx/ItemUsageHTML",
-                method: "POST",
-                crossDomain: true,
-                data: 
-                { 
-                    "GUID" : "05B6E448-CC3B-4A98-BC13-2C0ECF089933", 
-                    "InteropID": id,
-                },
-            }
-        ).then
-        (
-            function successCallback(response) 
-            {
-                var elem = document.getElementById('divItemUsage');
-                elem.innerHTML = response.data.d;
-            }, 
-            function errorCallback(response) 
-            {
-                var elem = document.getElementById('divItemUsage');
-                elem.innerHTML = 'Unable to load product usage information at this time';
-            }
-        );
-    }
+    //function itemUsage(id)
+    //{
+    //    $http
+    //    (
+    //        {
+    //            url: "https://ssfour51.com/services/WebService.asmx/ItemUsageHTML",
+    //            method: "POST",
+    //            crossDomain: true,
+    //            data: 
+    //            { 
+    //                "GUID" : "05B6E448-CC3B-4A98-BC13-2C0ECF089933", 
+    //                "InteropID": id,
+    //            },
+    //        }
+    //    ).then
+    //    (
+    //        function successCallback(response) 
+    //        {
+    //            var elem = document.getElementById('divItemUsage');
+    //            elem.innerHTML = response.data.d;
+    //        }, 
+    //        function errorCallback(response) 
+    //        {
+    //            var elem = document.getElementById('divItemUsage');
+    //            elem.innerHTML = 'Unable to load product usage information at this time';
+    //        }
+    //    );
+    //}
 
 	$scope.searchVariants = function(searchTerm) {
 		$scope.searchTerm = searchTerm;

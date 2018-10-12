@@ -51,7 +51,7 @@
             </div>
             <customcheckout ccorder="currentOrder" ng-model='currentOrder'></customcheckout>
 
-            <div ng-show="hasAuthorization()">
+            <div ng-if="hasAuthorization()">
                 <hr />
                 <label class="required" style="font-size:11px;display:block;">AUTHORIZATION CODE</label>
                 <input class="form-control" ng-model="ngmodelAuth" name="authCode" required

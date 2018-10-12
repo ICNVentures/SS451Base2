@@ -86,7 +86,7 @@ function CustomCheckoutCtrl($scope, $location)
     {
         switch ($scope.ccBuyer)
         {
-            case "2100001756": //American
+            case "2100001755": //American
                 return (opt == 1 || opt == 3 || opt == 4 || opt == 6 || opt == 8 || opt == 10);
 
             case "2100095876": //AO Smith
@@ -135,7 +135,7 @@ function CustomCheckoutCtrl($scope, $location)
                 
                 break;
                 
-            case "2100001756": //American
+            case "2100001755": //American
             case "2100098944": //Permatank
             case "2100001761": //Premier
             case "2100097123": //State
