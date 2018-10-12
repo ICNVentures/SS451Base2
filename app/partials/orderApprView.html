@@ -43,10 +43,10 @@
                     <span class="visible-xs panel-table-heading-xs text-info">{{'Order' | r | xlat}}</span>
                     <h3 class="text-primary" style="margin-top:3px;margin-bottom:0px;">{{order.ExternalID}}</h3>
                     <div style="margin-left:30px;">
-                        <button class="btn btn-small btn-action" style="background-color:LightGreen" ng-click="approveOrder($index)" ng-disabled="approveClicked">{{'Approve' | r | xlat}}</button>
-                        <button class="btn btn-small btn-default" ng-click="editOrder($index)">{{'Cart' | r | xlat}}</button>
-                        <button class="btn btn-small btn-default" ng-click="editCheckout($index)">{{'Checkout' | r | xlat}}</button>
-                        <button class="btn btn-small btn-default" ng-click="declineOrder($index)">{{'Decline' | r | xlat}}</button>
+                        <button class="btn btn-small btn-action" style="background-color:LightGreen" ng-click="approveOrder(order.ID)" ng-disabled="approveClicked">{{'Approve Order' | r | xlat}}</button>
+                        <button class="btn btn-small btn-default" ng-click="editOrder(order.ID)">{{'Cart' | r | xlat}}</button>
+                        <button class="btn btn-small btn-default" ng-click="editCheckout(order.ID)">{{'Checkout' | r | xlat}}</button>
+                        <button class="btn btn-small btn-default" ng-click="declineOrder(order.ID)">{{'Decline' | r | xlat}}</button>
                     </div>
 
                 </div>

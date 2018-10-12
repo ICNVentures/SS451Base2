@@ -75,7 +75,10 @@
 			$scope.orderSearchStat = criteria;
 		}
 
-	    $scope.approveOrder = function(idx) {
+	    $scope.approveOrder = function(id) 
+	    {
+            var idx = $scope.ordid.indexOf(id);
+            
 		    $scope.loadingIndicator = true;
 		    $scope.approveClicked = true;
 
@@ -111,7 +114,10 @@
 		    );
 	    }
 
-	    $scope.declineOrder = function(idx) {
+	    $scope.declineOrder = function(id) 
+	    {
+            var idx = $scope.ordid.indexOf(id);
+            
 		    $scope.loadingIndicator = true;
 		    Order.decline($scope.orders[idx],
 			    function(data) {
@@ -126,12 +132,18 @@
 		    );
 	    }
 
-    	$scope.editOrder = function(idx) {
+    	$scope.editOrder = function(id) 
+	    {
+            var idx = $scope.ordid.indexOf(id);
+            
 	    	$scope.loadingIndicator = true;
     		$location.path('apprcart/' + $scope.ordid[idx]);
     	}
 
-    	$scope.editCheckout = function(idx) {
+    	$scope.editCheckout = function(id) 
+	    {
+            var idx = $scope.ordid.indexOf(id);
+            
 	    	$scope.loadingIndicator = true;
     		$location.path('apprcheckout/' + $scope.ordid[idx]);
     	}

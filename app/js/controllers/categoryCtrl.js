@@ -75,85 +75,7 @@ function ($routeParams, $sce, $scope, $location, $451, Category, Product, Nav, U
             $scope.categoryLoadingIndicator = false;
         });
     }
-	else if ($scope.tree)
-	{
-	    if ($scope.user.CustomFields.length === 0)
-	    {
-    	    var id = '';
-            
-            angular.forEach($scope.tree, function(tr) 
-            {
-                if (id === '')
-                {
-                    id = tr.InteropID;
-                }
-                else if (tr.Name == 'All')
-                {
-                    id = tr.InteropID;
-                }
-            });
 
-                if (id === '')
-                {
-    	            User.get(function (user) 
-    	            {                    
-                        if (user.InteropID.match(/csr$/) || user.InteropID.match(/sales$/) || user.InteropID.match(/support$/))
-                        {
-                            $location.url('/order')
-                        }
-                        else
-                        {
-                            $location.url('/contactus');
-                        }
-    	            });
-                }
-                else
-                {
-                    $location.url('/catalog/' + id);
-                }
-            //window.location.href = window.location.href + '/' + id;
-	    }
-	}
-    else
-    {
-    	User.get(function (user) 
-    	{
-            if (user.CustomFields.length === 0)
-            {
-                var id = '';
-                
-                angular.forEach($scope.tree, function(tr) 
-                {
-                    if (id === '')
-                    {
-                        id = tr.InteropID;
-                    }
-                    else if (tr.Name == 'All')
-                    {
-                        id = tr.InteropID;
-                    }
-                });
-                
-                if (id === '')
-                {
-                    if (user.InteropID.match(/csr$/) || user.InteropID.match(/sales$/) || user.InteropID.match(/support$/))
-                    {
-                        $location.url('/order')
-                    }
-                    else
-                    {
-                        $location.url('/contactus');
-                    }
-                }
-                else
-                {
-                    $location.url('/catalog/' + id);
-                }
-                //window.location = window.location.href + id;
-            }
-        });    
-    }
-    
 	$scope.$on("treeComplete", function(data)
 	{
 	    if (typeof($scope.tree) !== "undefined" && $scope.tree !== null && $scope.tree.count > 0)
@@ -209,55 +131,59 @@ function ($routeParams, $sce, $scope, $location, $451, Category, Product, Nav, U
                     fld = field.Name;
                 }
             });
-        }
-        
-        if (fld == "SSBLandingOptionPro")
-        {
-            if (!$routeParams.categoryInteropID)
+
+            if (fld == "SSBLandingOptionPro")
             {
-                var iop = '';
-
-	            if (typeof($scope.tree) !== "undefined" && $scope.tree !== null && $scope.tree.count > 0)
-	            {
-    	            iop = $scope.tree[0].InteropID;
-	            }                
-
-                angular.forEach($scope.tree, function(data) 
+                if (!$routeParams.categoryInteropID)
                 {
-                    if (data.Name.toLowerCase() == 'all')
+                    var iop = '';
+    
+    	            if (typeof($scope.tree) !== "undefined" && $scope.tree !== null && $scope.tree.count > 0)
+    	            {
+        	            iop = $scope.tree[0].InteropID;
+    	            }                
+    
+                    angular.forEach($scope.tree, function(data) 
                     {
-                        iop = data.InteropID;
-                    }
-                });
+                        if (data.Name.toLowerCase() == 'all')
+                        {
+                            iop = data.InteropID;
+                        }
+                    });
+                    
+                    $location.path('catalog/' + iop);
+                }
                 
-                $location.path('catalog/' + iop);
-            }
-            
-            $scope.LandingOption = "PRO";
-        }
-        else if (fld == "SSBLandingOptionCat")
-        {
-            if (!$routeParams.categoryInteropID)
-            {
-                $scope.LandingOption = "CAT";
-            }
-            else
-            {
                 $scope.LandingOption = "PRO";
             }
-        }
-        else if (fld == "SSBLandingOptionBan")
-        {
-            if (!$routeParams.categoryInteropID)
+            else if (fld == "SSBLandingOptionCat")
             {
-                $scope.LandingOption = "BAN";
+                if (!$routeParams.categoryInteropID)
+                {
+                    $scope.LandingOption = "CAT";
+                }
+                else
+                {
+                    $scope.LandingOption = "PRO";
+                }
             }
-            else
+            else if (fld == "SSBLandingOptionBan")
             {
-                $scope.LandingOption = "PRO";
+                if (!$routeParams.categoryInteropID)
+                {
+                    $scope.LandingOption = "BAN";
+                }
+                else
+                {
+                    $scope.LandingOption = "PRO";
+                }
             }
-        }
 
-        return $scope.LandingOption;
+            return $scope.LandingOption;
+        }
+        else
+        {
+            return '';
+        }
     }	
 }]);

@@ -15,6 +15,7 @@ four51.app.directive('orderbuttons', [function() {
                             view = 'cart';
                             break;
                         case 'appr':
+                        case 'coappr':
                             view = 'appr';
                             break;
                         case 'checkout':
